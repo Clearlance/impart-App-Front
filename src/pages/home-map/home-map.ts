@@ -1,30 +1,30 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Home } from '../home/home';
+import { Map } from '../map/map';
+import { List } from '../list/list';
 
 /**
- * Generated class for the Register page.
+ * Generated class for the HomeMap page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-home-map',
+  templateUrl: 'home-map.html',
 })
-export class Register {
+export class HomeMap {
+  
+  tab1Root: any = Map;
+  tab2Root: any = List;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Register');
+    console.log('ionViewDidLoad HomeMap');
   }
   
-  home() {
-    this.navCtrl.push(Home);
-  }
-
 }

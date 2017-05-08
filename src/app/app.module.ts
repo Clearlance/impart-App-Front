@@ -3,15 +3,23 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
+
 
 import { Geolocation } from '@ionic-native/geolocation';
-
 import { MyApp } from './app.component';
+
 import { Landing } from '../pages/landing/landing';
 import { Login } from '../pages/login/login';
 import { Register } from '../pages/register/register';
-import { Home } from '../pages/home/home';
 
+// import { Home } from '../pages/home/home';
+import { HomeMap } from '../pages/home-map/home-map';
+import { Map } from '../pages/map/map';
+import { List } from '../pages/list/list';
+import { Locations } from '../providers/locations';
+import { GoogleMaps } from '../providers/google-maps';
+import { Connectivity } from '../providers/connectivity';
 
 
 let injections: any[] = [
@@ -19,13 +27,16 @@ let injections: any[] = [
     Landing,
     Login,
     Register,
-    Home
+    HomeMap,
+    Map,
+    List
   ]
 
 @NgModule({
   declarations: injections,
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,7 +45,7 @@ let injections: any[] = [
     StatusBar,
     SplashScreen,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity
   ]
 })
 export class AppModule {}

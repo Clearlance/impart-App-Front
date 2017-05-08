@@ -1,30 +1,24 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Home } from '../home/home';
-
 /**
- * Generated class for the Register page.
+ * Generated class for the List page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+  selector: 'page-list',
+  templateUrl: 'list.html',
 })
-export class Register {
+export class List {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Register');
-  }
-  
-  home() {
-    this.navCtrl.push(Home);
+    console.log('ionViewDidLoad List');
   }
 
 }

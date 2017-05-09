@@ -3,16 +3,15 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomeMap } from '../pages/home-map/home-map';
-// import { Home } from '../pages/home/home';
-// import { Landing } from '../pages/landing/landing';
+// import { HomeMap } from '../pages/home-map/home-map';
+import { Landing } from '../pages/landing/landing';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomeMap;
+  rootPage:any = Landing;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

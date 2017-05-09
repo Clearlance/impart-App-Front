@@ -7,7 +7,10 @@ import { HttpModule } from '@angular/http';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
+
 import { MyApp } from './app.component';
+import { AppUser } from '../providers/app-user';
+import { Post } from '../providers/post';
 
 import { Landing } from '../pages/landing/landing';
 import { Login } from '../pages/login/login';
@@ -44,6 +47,8 @@ let injections: any[] = [
   providers: [
     StatusBar,
     SplashScreen,
+    AppUser,
+    Post,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity
   ]

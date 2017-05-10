@@ -24,7 +24,7 @@ export class Login {
     console.log('ionViewDidLoad Login');
   }
   
-   loginForm(form) {
+  loginForm(form) {
     console.log(form);
     if(form.invalid) {
       return alert("Please fill in all the required fields.");

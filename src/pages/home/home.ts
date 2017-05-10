@@ -15,7 +15,10 @@ export class Home {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private geolocation: Geolocation) {
   }
   
   ionViewDidLoad() {

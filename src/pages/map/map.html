@@ -2,9 +2,18 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>
-      Nearby
-      </ion-title>
+    <ion-title text-center>impart</ion-title>
+    
+    <ion-buttons left padding>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <ion-buttons end padding>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Post</button>
+    </ion-buttons>  
+    
   </ion-navbar>
 
 </ion-header>

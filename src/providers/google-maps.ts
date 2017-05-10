@@ -17,9 +17,10 @@ export class GoogleMaps {
   markers: any = [];
   apiKey : string;
   
-  
 
-  constructor(public connectivityService: Connectivity, private geolocation: Geolocation) {
+  constructor(
+    public connectivityService: Connectivity, 
+    private geolocation: Geolocation) {
     console.log('Hello GoogleMaps Provider');
   }
   
@@ -91,9 +92,9 @@ export class GoogleMaps {
        
       this.geolocation.getCurrentPosition().then((position) => {
         
-        // let latLng = new google.maps.LatLng(positon.coords.latitude, position.coords.longitude);
+        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
        
-        let latLng = new google.maps.LatLng(32.864063, -117.214697);
+        // let latLng = new google.maps.LatLng(32.864063, -117.214697);
         
         let mapOptions = {
           center: latLng,
@@ -170,7 +171,17 @@ export class GoogleMaps {
     });
     
     this.markers.push(marker);
-    
   }
+  
+  // addInfoWindow(marker, content){
+    
+  //   let infoWindow = new google.maps.InfoWindow({
+  //     content: content
+  //   });
+    
+  //   google.maps.event.addListener(marker, 'click', () => {
+  //     infoWindow.open(this.map, marker);
+  //   });
+  // }
 
 }

@@ -1,8 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, App } from 'ionic-angular';
 import { GoogleMaps } from '../../providers/google-maps';
 import { Locations } from '../../providers/locations';
+
+import { Landing } from '../landing/landing';
 
 @Component({
   selector: 'page-map',
@@ -13,10 +15,15 @@ export class Map {
   @ViewChild('map') mapElement: ElementRef;
   @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
   
-  constructor(public navCtrl: NavController, public maps: GoogleMaps, public platform: Platform, public locations: Locations) {
+  constructor(
+    public navCtrl: NavController, 
+    public maps: GoogleMaps, 
+    public platform: Platform, 
+    public locations: Locations,
+    private app:App
+    ) {
+}
   
-  }
-
   ionViewDidLoad() {
     
     this.platform.ready().then(() => {
@@ -25,4 +32,10 @@ export class Map {
     
     }); 
   }
+  
+ logout(){
+    //clear any cached data
+    this.app.getRootNav().setRoot(Landing);
+  }
+ 
 }

@@ -24,6 +24,7 @@ export class Register {
     console.log('ionViewDidLoad Register');
   }
   
+  
   signupForm(form) {
     console.log(form);
     if(form.invalid) {

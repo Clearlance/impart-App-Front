@@ -1,9 +1,4 @@
-<!--
-  Generated template for the Login page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="secondary" text-center>
@@ -14,15 +9,17 @@
 
 
 <ion-content padding>
-    <form>
+  
+  <form #logForm="ngForm" (ngSubmit)="loginForm(logForm)" novalidate>
     <ion-item>
-      <ion-label>Email:</ion-label>
-      <ion-input name="email" type="email"></ion-input>
+        <ion-label>Email:</ion-label>
+      <ion-input name="email" type="email" [(ngModel)]="user.email" required></ion-input>
+     </ion-item>
+     <ion-item>
+       <ion-label>Password:</ion-label>
+       <ion-input name="password" type="password" [(ngModel)]="user.password" required></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Password:</ion-label>
-      <ion-input name="password" type="password"></ion-input>
-    </ion-item>
+    <button ion-button type="submit" class="button-block" color="light">Login</button>
   </form>
-  <button ion-button type="submit" class="button-block" color="light" (click)="home()">Login</button>
+  
 </ion-content>

@@ -16,6 +16,7 @@ export class GoogleMaps {
   mapLoadedObserver: any;
   markers: any = [];
   apiKey : string;
+  latLng: any;
   
 
   constructor(
@@ -92,13 +93,13 @@ export class GoogleMaps {
        
       this.geolocation.getCurrentPosition().then((position) => {
         
-        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
        
         // let latLng = new google.maps.LatLng(32.864063, -117.214697);
         
         let mapOptions = {
-          center: latLng,
-          zoom: 13,
+          center: this.latLng,
+          zoom: 18,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         
@@ -160,28 +161,17 @@ export class GoogleMaps {
     
   }
   
-  addMarker(lat: number, lng: number): void {
+  // addMarker(lat: number, lng: number): void {
     
-    let latLng = new google.maps.LatLng(lat, lng);
+  //   this.latLng = new google.maps.LatLng(lat, lng);
     
-    let marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: latLng
-    });
-    
-    this.markers.push(marker);
-  }
-  
-  // addInfoWindow(marker, content){
-    
-  //   let infoWindow = new google.maps.InfoWindow({
-  //     content: content
+  //   let marker = new google.maps.Marker({
+  //     map: this.map,
+  //     animation: google.maps.Animation.DROP,
+  //     position: this.latLng
   //   });
     
-  //   google.maps.event.addListener(marker, 'click', () => {
-  //     infoWindow.open(this.map, marker);
-  //   });
+  //   this.markers.push(marker);
   // }
 
 }

@@ -4,28 +4,27 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class AppUser {
+export class Posts {
 
   constructor(public http: Http) {
-    console.log('Hello AppUser Provider');
+    console.log('Hello Posts Provider');
   }
   
   baseUrl: string = "https://gerardo-final-jbrownssf.c9users.io:8080/api"
-  path: string = "/AppUsers"
+  path: string = "/Posts"
   
-  register(newUserData) {
+  postForms(postData) {
     return this.http.post(
       this.baseUrl + this.path,
-      newUserData
+      postData
     );
   }
   
-  login(userData) {
-    return this.http.post(
-      this.baseUrl + this.path + '/login',
-      userData
+  getPosts(postData) {
+    return this.http.get(
+      this.baseUrl + this.path,
+      postData
     );
   }
-
 
 }

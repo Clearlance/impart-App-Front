@@ -1,33 +1,38 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 
 import { Posts } from '../../providers/posts';
+import { HomeMap } from '../home-map/home-map';
 
 @IonicPage()
 @Component({
-  selector: 'page-list',
-  templateUrl: 'list.html',
+  selector: 'page-post-page',
+  templateUrl: 'post-page.html',
 })
-export class List {
+export class PostPage {
   
-  postItems: any = []
+  postData: any = {}
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public posts: Posts) {
+    public posts: Posts,
+    private app: App) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad List');
-    console.log(this.getPost());
+    console.log('ionViewDidLoad PostPage');
   }
   
-  getPost() {
-    return this.posts.getPosts(this.postItems)
+  postForms(form) {
+    console.log(form);
+    if(form.invalid) {
+      return alert("Please fill in all the required fields.");
+    }
+    this.posts.postForms(this.postData)
     .map(res =>  res.json())
-    .subscribe(postItems => {
-      this.postItems = postItems;
+    .subscribe(res => {
+      this.app.getRootNav().setRoot(HomeMap);
     }, error => {
       switch(error.status) {
         case 404:
@@ -48,4 +53,5 @@ export class List {
       }
     });
   }
+
 }

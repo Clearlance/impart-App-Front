@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary" text-center>
+    <ion-title>Donate</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #posts="ngForm" (ngSubmit)="postForms(posts)" novalidate>
+    <ion-item>
+      <ion-label>DonorID:</ion-label>
+      <ion-input name="donorID" type="text" [(ngModel)]="postData.donorID" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date:</ion-label>
+      <ion-input name="postDate" type="date" [(ngModel)]="postData.postDate" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Claim Status:</ion-label>
+      <ion-input name="claimStatus" type="boolean" [(ngModel)]="postData.claimStatus"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>location:</ion-label>
+      <ion-input name="Location" type="text" [(ngModel)]="postData.Location" required></ion-input>
+    </ion-item>
+    <button ion-button type="submit" class="button-block" color="danger">Post</button>
+  </form>
+</ion-content>

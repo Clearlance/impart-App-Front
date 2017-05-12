@@ -10,13 +10,14 @@
 
 <ion-content padding>
   
-  <ion-list>
+  <ion-list *ngFor="let postItem of postItems" >
     <ion-item center>
       <ion-avatar item-left>
         <ion-icon name="pin"></ion-icon>
       </ion-avatar>
-      <h2>Post Title</h2>
-      <p>0.45 miles</p>
+      <h2>{{postItem.donorID}}</h2>
+      <p>{{postItem.postDate}}</p>
+      <p>{{postItem.Location}}</p>
     </ion-item>
   </ion-list>
   

@@ -9,17 +9,17 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { AppUser } from '../providers/app-user';
-import { Post } from '../providers/post';
+import { Posts } from '../providers/posts';
 
 import { Landing } from '../pages/landing/landing';
 import { Login } from '../pages/login/login';
 import { Register } from '../pages/register/register';
 
-// import { Home } from '../pages/home/home';
 import { HomeMap } from '../pages/home-map/home-map';
 import { Map } from '../pages/map/map';
 import { List } from '../pages/list/list';
-import { Locations } from '../providers/locations';
+import { PostPage } from '../pages/post-page/post-page';
+
 import { GoogleMaps } from '../providers/google-maps';
 import { Connectivity } from '../providers/connectivity';
 
@@ -31,7 +31,8 @@ let injections: any[] = [
     Register,
     HomeMap,
     Map,
-    List
+    List,
+    PostPage
   ]
 
 @NgModule({
@@ -47,9 +48,9 @@ let injections: any[] = [
     StatusBar,
     SplashScreen,
     AppUser,
-    Post,
+    Posts,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}, Locations, GoogleMaps, Connectivity
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, GoogleMaps, Connectivity
   ]
 })
 export class AppModule {}
